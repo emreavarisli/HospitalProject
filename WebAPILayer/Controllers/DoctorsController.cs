@@ -14,7 +14,7 @@ namespace WebAPILayer.Controllers
     [ApiController]
     public class DoctorsController : ControllerBase
     {
-        private IDoctorService _doctorService;
+        private readonly IDoctorService _doctorService;
 
         public DoctorsController(IDoctorService doctorService)
         {
@@ -26,18 +26,18 @@ namespace WebAPILayer.Controllers
             return _doctorService.GetAll();
         }
         [HttpPost("add")]
-        public IResult Add(Doctor doctor)
+        public CoreLayer.Utilities.Results.IResult Add(Doctor doctor)
         {
             return _doctorService.Add(doctor);
         }
 
         [HttpPost("update")]
-        public IResult Update(Doctor doctor)
+        public CoreLayer.Utilities.Results.IResult Update(Doctor doctor)
         {
             return _doctorService.Update(doctor);
         }
         [HttpPost("delete")]
-        public IResult Delete(Doctor doctor)
+        public CoreLayer.Utilities.Results.IResult Delete(Doctor doctor)
         {
             return _doctorService.Delete(doctor);
         }
